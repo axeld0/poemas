@@ -127,6 +127,17 @@
 
       // Mostrar el poema
       document.getElementById('poema').innerText = versosSeleccionados.join('\n');
+      const contenedor = document.getElementById('poema');
+    contenedor.innerText = ''; // Limpiar antes de escribir
+
+    let index = 0;
+
+    function typePoem() {
+      if (index < poemaCompleto.length) {
+        contenedor.innerText += poemaCompleto.charAt(index);
+        index++;
+        setTimeout(typePoem, 25); // Velocidad de tipeo
+
     }
   </script>
 <footer style="
