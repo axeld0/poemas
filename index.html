@@ -124,11 +124,11 @@
           versosSeleccionados.push(verso);
         }
       }
-
+    }
       // Mostrar el poema
       document.getElementById('poema').innerText = versosSeleccionados.join('\n');
       const contenedor = document.getElementById('poema');
-    contenedor.innerText = ''; // Limpiar antes de escribir
+      contenedor.innerText = ''; // Limpiar antes de escribir
 
     let index = 0;
 
@@ -140,7 +140,9 @@
 
     }
   }
-    typePoem();
+
+
+  typePoem();
   </script>
 <footer style="
 position: fixed;
