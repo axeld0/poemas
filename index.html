@@ -115,9 +115,11 @@
     ];
    
     function generarPoema() {
-    let versosSeleccionados = [];
+    const contenedor = document.getElementById('poema');
+    contenedor.innerHTML = ''; // Limpiar el contenido anterior
 
-    // Elegir 4 versos únicos
+    // Seleccionar 4 versos únicos
+    let versosSeleccionados = [];
     while (versosSeleccionados.length < 4) {
       const verso = versos[Math.floor(Math.random() * versos.length)];
       if (!versosSeleccionados.includes(verso)) {
@@ -125,32 +127,35 @@
       }
     }
 
-    const poemaCompleto = versosSeleccionados.join('\n');
-    const contenedor = document.getElementById('poema');
-    contenedor.innerHTML = ''; // Vaciar antes de escribir
+    // Crear los elementos de línea (uno por verso)
+    let versoIndex = 0;
 
-    let index = 0;
+    function escribirVerso() {
+      if (versoIndex >= versosSeleccionados.length) return;
 
-    function typePoem() {
-      if (index < poemaCompleto.length) {
-        let char = poemaCompleto.charAt(index);
+      const verso = versosSeleccionados[versoIndex];
+      const linea = document.createElement('div');
+      contenedor.appendChild(linea);
 
-        // Convertir saltos de línea en <br> y espacios en &nbsp;
-        if (char === '\n') {
-          contenedor.innerHTML += '<br>';
-        } else if (char === ' ') {
-          contenedor.innerHTML += '&nbsp;';
+      let charIndex = 0;
+
+      function escribirCaracter() {
+        if (charIndex < verso.length) {
+          const char = verso.charAt(charIndex);
+          linea.innerHTML += char === ' ' ? '&nbsp;' : char;
+          charIndex++;
+          setTimeout(escribirCaracter, 25); // velocidad de tipeo
         } else {
-          contenedor.innerHTML += char;
+          versoIndex++;
+          setTimeout(escribirVerso, 300); // pequeña pausa entre versos
         }
-
-        index++;
-        setTimeout(typePoem, 25); // Velocidad del "tipeo"
       }
+
+      escribirCaracter();
     }
 
-    typePoem();
-
+    escribirVerso();
+  }
   </script>
 <footer style="
 position: fixed;
