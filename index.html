@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generador de Poemas</title>
   <style>
+    /* Body centrado y con padding para no pegarse a los bordes */
     body {
       font-family: 'Georgia', serif;
       background-color: #fff8f0;
@@ -11,22 +13,64 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
+      padding: 1.5rem 1rem;
+      margin: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
+    /* Tamaño de fuente más legible en móvil */
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* Botón grande y cómodo para tocar */
     button {
-      padding: 10px 20px;
-      font-size: 1rem;
+      padding: 14px 28px;
+      font-size: 1.2rem;
       margin-top: 1rem;
       cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #4caf50;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+      user-select: none;
+      max-width: 90vw;
+    }
+    button:hover,
+    button:focus {
+      background-color: #45a049;
+      outline: none;
     }
 
+    /* Contenedor del poema adaptable al ancho móvil */
     .poema {
-      margin-top: 2rem;
-      font-size: 1.3rem;
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
       white-space: pre-line;
-      max-width: 600px;
+      max-width: 90vw;
       text-align: left;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    /* Para pantallas grandes, que el max-width no se quede muy pequeño */
+    @media (min-width: 600px) {
+      .poema {
+        max-width: 600px;
+        font-size: 1.3rem;
+      }
+      button {
+        max-width: 300px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
