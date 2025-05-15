@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Poemas</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fff8f0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .poema {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      white-space: pre-line;
+      max-width: 600px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌿 Generador de Poemas 🌿</h1>
+  <button onclick="generarPoema()">Generar poema</button>
+  <div class="poema" id="poema"></div>
+
+  <script>
+    const versos = [
+      "El siervo elige cuidadosamente todos los utensilios",
+      "Al mecerse entre las costillas de la noche",
+      "¿podrías alcanzarme las batatas?",
+      "Quiero besarte hasta que muera",
+      "pum pum, palito palito dos",
+      "Que cielo elige tu cara para verte",
+      "podrías sentirme cerca",
+      "Quiero morirme hasta besarte",
+      "Para vos, ¿que significa el azul?",
+      "Popolipó popó lipó",
+      "No elijo más el camino fácil",
+      "Voy a elegir el camino más largo",
+      "Hay ochocientos ojos haciendome guiños",
+      "Yo solo cierro el alma",
+      "Mis manos buscan con desesperación hacerte un mimito",
+      "El tiempo no borra tu perfume",
+      "Los trenes parten hacia el olvido",
+      "Una vela arde",
+      "no, por dios no, no quiero nada con vos",
+      "El cielo enrojecido se despide",
+      "Hay mensajitos que nunca se abrieron",
+      "El silencio pesa",
+      "Por ahi todavía te acordás de los abrazos que me diste",
+      "Mia, tuya, tuya, tuya",
+      "¿Nos queremos?",
+      "Dame las flores que te regalé",
+      "Pasado, todo es pasado",
+      "cristalitos, ojos , cristalitos",
+      "Hagámosnos mimos",
+      "Encontrame, por favor, encontrame"
+    ];
+
+    function generarPoema() {
+      let versosSeleccionados = [];
+
+      // Elegir 4 versos únicos
+      while (versosSeleccionados.length < 4) {
+        const verso = versos[Math.floor(Math.random() * versos.length)];
+        if (!versosSeleccionados.includes(verso)) {
+          versosSeleccionados.push(verso);
+        }
+      }
+
+      // Mostrar el poema
+      document.getElementById('poema').innerText = versosSeleccionados.join('\n');
+    }
+  </script>
+
+</body>
+</html>
