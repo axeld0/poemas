@@ -113,22 +113,20 @@
       "hagámosnos los otros",
       "Encontrame, por favor, encontrame"
     ];
-
     function generarPoema() {
-      let versosSeleccionados = [];
+    let versosSeleccionados = [];
 
-      // Elegir 4 versos únicos
-      while (versosSeleccionados.length < 4) {
-        const verso = versos[Math.floor(Math.random() * versos.length)];
-        if (!versosSeleccionados.includes(verso)) {
-          versosSeleccionados.push(verso);
-        }
+    // Elegir 4 versos únicos
+    while (versosSeleccionados.length < 4) {
+      const verso = versos[Math.floor(Math.random() * versos.length)];
+      if (!versosSeleccionados.includes(verso)) {
+        versosSeleccionados.push(verso);
       }
     }
-      // Mostrar el poema
-      document.getElementById('poema').innerText = versosSeleccionados.join('\n');
-      const contenedor = document.getElementById('poema');
-      contenedor.innerText = ''; // Limpiar antes de escribir
+
+    const poemaCompleto = versosSeleccionados.join('\n');
+    const contenedor = document.getElementById('poema');
+    contenedor.innerText = ''; // Limpiar antes de escribir
 
     let index = 0;
 
@@ -137,12 +135,12 @@
         contenedor.innerText += poemaCompleto.charAt(index);
         index++;
         setTimeout(typePoem, 25); // Velocidad de tipeo
-
+      }
     }
+
+    typePoem();
   }
 
-
-  typePoem();
   </script>
 <footer style="
 position: fixed;
